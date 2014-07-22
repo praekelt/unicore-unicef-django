@@ -88,7 +88,7 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -99,7 +99,7 @@ SECRET_KEY = 'p*o_9&m&mz7#yssqo0euj9ihqcw7h7w74j6i9_j^%41a9tu-5%'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    #     'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -224,6 +224,19 @@ RAVEN_CONFIG = {
 }
 
 CKEDITOR_UPLOAD_PATH = abspath('media', 'uploads')
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+        ['Styles', 'Format', 'Bold', 'Italic', 'Underline',
+            'Strike', 'SpellChecker', 'Undo', 'Redo'],
+        ['TextColor', 'BGColor'],
+        ['NumberedList', 'BulletedList'],
+        ['Smiley', 'SpecialChar'], ['Source'],
+        ],
+        'forcePasteAsPlainText': True,
+    }
+}
+
 try:
     from local_settings import *
 except ImportError:
