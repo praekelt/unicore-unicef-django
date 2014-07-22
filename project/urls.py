@@ -14,5 +14,9 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^', include('jmbo.urls')),
     url(r'^', include('unicef.urls')),
+    url(r'^ckeditor/', include('ckeditor.urls')),
+    url(r'^likes/', include('likes.urls')),
+    url(r'^comments/', include('django.contrib.comments.urls')),
 )
