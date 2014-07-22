@@ -21,7 +21,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
         'NAME': 'unicef_django.db',
         'USER': '',
         'PASSWORD': '',
@@ -147,6 +147,7 @@ INSTALLED_APPS = (
     'post',
     'ckeditor',
     'photologue',
+    'atlas',
 
     # sample apps to explain usage
     'unicef',
