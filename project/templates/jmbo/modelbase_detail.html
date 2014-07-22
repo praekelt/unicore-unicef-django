@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% load jmbo_inclusion_tags %}
+
+{% block extrameta %}
+    <meta property="og:title" content="{{ object.title }}" />
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http{% if request.is_secure %}s{%endif %}://{{ request.META.HTTP_HOST }}{{ object.get_absolute_url }}" />
+    <meta property="og:image" content="http{% if request.is_secure %}s{%endif %}://{{ request.META.HTTP_HOST }}{{ object.image_detail_url }}" />
+    <meta property="og:description" content="{{ object.description|default_if_none:'' }}" />
+{% endblock %}
+
+{% block content %}
+    <div class="page section_news object-detail {{ object.class_name.lower }}-detail">
+
+        {% if view_modifier %}
+            <div class="title">
+                {{ title }}
+            </div>
+            {% view_modifier view_modifier %}
+        {% endif %}
+
+        {% object_header object %}
+
+        {% render_object object.as_leaf_class "detail" %}
+
+        {% comment %}
+        {% object_footer object %}
+        {% object_comments object %}
+        {% endcomment %}
+
+        <div id="menu">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'category_object_list' 'diarrhoea' %}">Diarrhoea</a>
+            <a href="{% url 'category_object_list' 'hygiene' %}">Hygiene</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'terms' %}">Terms</a>
+        </div>
+    </div><!--/page-->
+{% endblock %}
