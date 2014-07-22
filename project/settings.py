@@ -165,6 +165,7 @@ INSTALLED_APPS = (
     'likes',
     'simple_autocomplete',
     'pagination',
+    'sites_groups',
 
     # sample apps to explain usage
     'unicef',
