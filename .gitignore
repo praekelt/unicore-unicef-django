@@ -7,6 +7,8 @@ __pycache__/
 
 # Packages
 # Distribution / packaging
+project/static/
+project/media/
 *.db
 .Python
 env/
