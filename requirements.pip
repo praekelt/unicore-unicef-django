@@ -1,4 +1,6 @@
-jmbo>1.0.0
+Django<1.5
+django-tastypie==0.9.16
+jmbo<1.0.0
 South
 gunicorn
 python-memcached
