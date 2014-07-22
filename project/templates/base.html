@@ -13,17 +13,14 @@
     <link href="{{ STATIC_URL }}css/style.css?20140722" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
-    <div id="site">zm.unicef.unicore.io</div>
+<div id="wrap">
     <div id="header">
-        <div class="logo">
-            <a href="{% url 'home' %}"><img src="{{ STATIC_URL }}img/logo.png" border="0" /></a>
-        </div>
-        <div class="nav">
-            <a href="{% url 'home' %}">Home</a> |
-            <a href="{% url 'category_object_list' 'hygiene' %}">Hygiene</a> |
-            <a href="{% url 'category_object_list' 'diarrhoea' %}">Diarrhoea</a>
-        </div>
+        <a href="{% url 'home' %}"><img src="{{ STATIC_URL }}img/logo.png" border="0" /></a>
+    </div>
+    <div id="nav">
+        <a href="{% url 'home' %}">Home</a> |
+        <a href="{% url 'category_object_list' 'hygiene' %}">Hygiene</a> |
+        <a href="{% url 'category_object_list' 'diarrhoea' %}">Diarrhoea</a>
     </div>
 
 
@@ -56,18 +53,22 @@
 
         {% block footer %}
             {% block footer_search_form %}
+            <!--
             <div class="h1">Search</div>
             <form id="frmSearch" method="get" action="">
                 <div class="row"><input type="text" name="q" value="{{ query }}" class="short" /></div>
                 <div class="row"><input type="submit" name="submit" value="Search" class="btn" /></div>
                 <div class="clear"></div>
             </form>
+            -->
             {% endblock %}
 
+            <!--
             <div class="h1">Share This Site</div>
             <div class="content-inner">
                 <div class="social"><p>Share This:</p> <a href="http://twitter.com/home?status=MAMA - Mobile Alliance for Maternal Action http://zm.unicef.unicore.io"><img src="{{ STATIC_URL }}img/twitter.png" /></a> <a href="http://www.facebook.com/sharer.php?u=http://zm.unicef.unicore.io&t=MAMA - Mobile Alliance for Maternal Action"><img src="{{ STATIC_URL }}img/facebook.png" /></a></div>
             </div>
+            -->
         {% endblock %}
 
     </div>
@@ -76,5 +77,6 @@
         <span>&copy; Unicef {% now "Y" %}</span><br />
         <a href="{% url 'about' %}">About</a> | <a href="{% url 'terms' %}">Terms</a>
     </div>
+</div>
 </body>
 </html>

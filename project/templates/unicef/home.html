@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 
+{% block above_content %}
+<div id="banner"><img src="{{ STATIC_URL }}img/kids.jpg"></div>
+{% endblock %}
+
 {% block content %}
-    This is the home page
+    <div class="h1">Diarrhoea</div>
+    <div class="box">
+        <div class="item">
+            <a href="article.html" class="pic"><img src="{{ STATIC_URL }}img/icon-diarrhoea.jpg"></a>
+            <div class="text">Diarrhoea kills children by draining liquid from the body, which dehydrates the child.<br><a href="article.html">Read more »</a></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="h1">Hygiene</div>
 {% endblock %}

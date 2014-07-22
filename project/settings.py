@@ -21,7 +21,7 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'unicef_django.db',
         'USER': '',
         'PASSWORD': '',
@@ -154,7 +154,6 @@ INSTALLED_APPS = (
     'gunicorn',
     'django_nose',
     'raven.contrib.django.raven_compat',
-    'debug_toolbar',
 
     'publisher',
     'jmbo',
@@ -162,7 +161,6 @@ INSTALLED_APPS = (
     'post',
     'ckeditor',
     'photologue',
-    'atlas',
     'secretballot',
     'likes',
     'simple_autocomplete',
