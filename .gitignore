@@ -5,6 +5,7 @@ __pycache__/
 # C extensions
 *.so
 
+# Packages
 # Distribution / packaging
 .Python
 env/
@@ -21,6 +22,18 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
 
 # Installer logs
 pip-log.txt
@@ -31,6 +44,7 @@ htmlcov/
 .tox/
 .coverage
 .cache
+.tox
 nosetests.xml
 coverage.xml
 
@@ -41,14 +55,6 @@ coverage.xml
 .mr.developer.cfg
 .project
 .pydevproject
-
-# Rope
-.ropeproject
-
-# Django stuff:
-*.log
-*.pot
-
-# Sphinx documentation
-docs/_build/
-
+/ve/
+logs/*.log
+*.pid
