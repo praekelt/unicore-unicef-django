@@ -13,8 +13,17 @@
 </head>
 <body>
 
-    {% block following_header %}
-    {% endblock %}
+    <div id="site">zm.unicef.unicore.io</div>
+    <div id="header">
+        <div class="logo">
+            <a href="{% url 'home' %}"><img src="{{ STATIC_URL }}img/logo.png" border="0" /></a>
+        </div>
+        <div class="nav">
+            <a href="{% url 'hygiene_list' %}">Hygiene</a> |
+            <a href="{% url 'diarrhoea_list' %}">Diarrhoea</a>
+        </div>
+    </div>
+
 
     <div id="content">
 
