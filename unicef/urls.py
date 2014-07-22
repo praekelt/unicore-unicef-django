@@ -23,6 +23,16 @@ urlpatterns = patterns(
         TemplateView.as_view(template_name="unicef/terms.html"),
         name='terms'
     ),
+    url(
+        r'^about/hygiene/$',
+        TemplateView.as_view(template_name="unicef/hygiene.html"),
+        name='about_hygiene'
+    ),
+    url(
+        r'^about/diarrhoea/$',
+        TemplateView.as_view(template_name="unicef/diarrhoea.html"),
+        name='about_diarrhoea'
+    ),
     #url(r'^search/', cache_page(SearchView(results_per_page=5), 60 * 60), name='haystack_search'),
 )
 

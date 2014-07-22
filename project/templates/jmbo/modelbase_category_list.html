@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load url from future %}
 
 {% load jmbo_inclusion_tags %}
 
@@ -28,7 +29,12 @@
                 </div>
             {% endfor %}
                 <div class="pagi">
-                    <a href="listing.html"></a><a href="more.html">Why it is important</a>
+                    {% if category.slug == 'diarrhoea' %}
+                    <a href="{% url 'about_diarrhoea' %}">Why it is important</a>
+                    {% endif %}
+                    {% if category.slug == 'hygiene' %}
+                    <a href="{% url 'about_hygiene' %}">Why it is important</a>
+                    {% endif %}
                 </div>
             </div>
 

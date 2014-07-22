@@ -2,6 +2,7 @@
 {% load jmbo_template_tags pagination_tags cache %}
 
 {% block content %}
+<div class="detail">
     {% cache 3600 'object-detail-inclusion' object.id object.modified request.page %}
         {% with object.content_pages as content_pages %}
             {% autopaginate content_pages 1 %}
@@ -21,4 +22,5 @@
             {% paginate hashtag='#jmbo-post' %}
         {% endwith %}
     {% endcache %}
+</div>
 {% endblock %}

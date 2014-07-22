@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block content %}
+<div class="h2">Hygiene</div>
+<div class="intro">Why it is important to share and act on this information</div>
+<div class="detail">
+    <p>Young children are more vulnerable than any other age group to the ill effects of unsafe water, poor sanitation and lack of hygiene. These contribute to 88 per cent of deaths from diarrhoeal diseases. Children under 5 years old account for nearly 90 per cent of deaths from diarrhoea.</p>
+    <p>The simple habit of handwashing with soap is estimated to reduce the incidence of diarrhoea by nearly half. It also greatly reduces the risk of respiratory infections such as pneumonia and other diseases, including eye infections, especially trachoma.</p>
+    <p>Parents and caregivers should wash their hands with soap and water at these critical moments: (1) after cleaning the infant or young child who has defecated, (2) after helping the child use the toilet or latrine, (3) after going to the latrine or toilet themselves, (4) before touching food and feeding young children, and (5) after dealing with refuse.</p>
+    <p>Parents and caregivers need to help children develop the habit of washing their hands with soap before eating and after using the latrine or toilet. Where soap is not available hands can be washed with ash and water. Animal and human faeces should be kept away from houses, paths, water sources and children's play areas.</p>
+    <p>The use of latrines and toilets together with good hygiene practices – specifically hand washing with soap – are essential public health tools. They protect children and families at little cost and help realize children's right to good health and nutrition.</p>
+    <p>Everyone in the community needs to work together to build and use toilets or latrines, practise good hygiene, protect water sources, and safely dispose of waste water and refuse.</p>
+    <p>It is important for governments to support communities by providing information on how to design and build latrines and toilets that all families can afford. In urban areas particularly, government support is also needed for low-cost sanitation and drainage systems, safe drinking water and refuse collection.</p>
+</div>
+
+<div class="pagination">
+    <a href="{% url 'category_object_list' 'hygiene' %}" class="align-right">Key Messages »</a>
+    <div class="clear"></div>
+</div>
+{% endblock %}

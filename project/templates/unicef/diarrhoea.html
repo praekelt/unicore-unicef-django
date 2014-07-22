@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load url from future %}
+
+{% block content %}
+<div class="h2">Diarrhoea</div>
+<div class="intro">Why it is important to share and act on this information</div>
+<div class="detail">
+
+    <p>Diarrhoea is the second most common cause of death in young children, after pneumonia. About 4 billion cases of diarrhoea are estimated to occur every year among children under 5. It kills more than 1.5 million children under 5 years of age every year, representing 17 per cent of all deaths in children under 5. Children are more likely than adults to die from diarrhoea because they become dehydrated and malnourished more quickly.</p>
+
+    <p>Diarrhoea is caused by germs that are swallowed, especially germs from faeces. This happens most often where there is unsafe disposal of faeces, poor hygiene practices, lack of clean drinking water, or when infants are not breastfed.</p>
+
+    <p>Infants who are exclusively breastfed in their first six months and who receive all their immunizations on time are less likely to get diarrhoea. Children with diarrhoea should be given lots of fluids and foods along with a special solution called oral rehydration salts (ORS) and zinc to help reduce the severity of the illness.</p>
+
+    <p>Families and communities, with support from governments and non-governmental organizations (NGOs), can do much to raise awareness of 1) what causes diarrhoea, 2) why it is important to treat diarrhoea as soon as it starts, and 3) how to prevent the conditions that cause it.</p>
+
+    <p>When everyone works together to reduce diarrhoea, children's right to life, survival, health and development can be better assured.</p>
+</div>
+
+<div class="pagination">
+    <a href="{% url 'category_object_list' 'diarrhoea' %}" class="align-right">Key Messages »</a>
+    <div class="clear"></div>
+</div>
+{% endblock %}
