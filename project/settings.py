@@ -1,10 +1,7 @@
 # Django settings for skeleton project.
 
 import os
-import djcelery
 
-
-djcelery.setup_loader()
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
@@ -24,8 +21,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'skeleton',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'unicef_django.db',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -96,7 +93,7 @@ STATICFILES_FINDERS = (
 
 # Make this unique, and don't share it with anybody.
 # Leaving this intentionally blank because you have to generate one yourself.
-SECRET_KEY = 'please-change-me'
+SECRET_KEY = 'p*o_9&m&mz7#yssqo0euj9ihqcw7h7w74j6i9_j^%41a9tu-5%'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -115,10 +112,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'skeleton.urls'
+ROOT_URLCONF = 'project.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'skeleton.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -142,13 +139,18 @@ INSTALLED_APPS = (
     'gunicorn',
     'django_nose',
     'raven.contrib.django.raven_compat',
-    'djcelery',
-    'djcelery_email',
     'debug_toolbar',
 
+    'publisher',
+    'jmbo',
+    'category',
+    'post',
+    'ckeditor',
+    'photologue',
+
     # sample apps to explain usage
-    'app1',
-    'celery_app',
+    'unicef',
+    'project',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -180,22 +182,6 @@ LOGGING = {
     }
 }
 
-# Celery configuration options
-BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
-
-# Uncomment if you're running in DEBUG mode and you want to skip the broker
-# and execute tasks immediate instead of deferring them to the queue / workers.
-# CELERY_ALWAYS_EAGER = DEBUG
-
-# Tell Celery where to find the tasks
-CELERY_IMPORTS = ('celery_app.tasks',)
-
-# Defer email sending to Celery, except if we're in debug mode,
-# then just print the emails to stdout for debugging.
-EMAIL_BACKEND = 'djcelery_email.backends.CeleryEmailBackend'
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Django debug toolbar
 DEBUG_TOOLBAR_CONFIG = {
@@ -218,6 +204,7 @@ RAVEN_CONFIG = {
     # 'dsn': 'http://public:secret@example.com/1',
 }
 
+CKEDITOR_UPLOAD_PATH = abspath('media', 'uploads')
 try:
     from local_settings import *
 except ImportError:

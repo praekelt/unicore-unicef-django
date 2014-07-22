@@ -10,8 +10,11 @@ psycopg2
 celery
 redis
 django-debug-toolbar
-django-celery
-django-celery-email
 pep8
 pyflakes
 fabric
+https://github.com/praekelt/django-photologue/tarball/2.10.praekelt#egg=django-photologue
+jmbo<1.0.0
+jmbo-post
+django-category
+django-ckeditor
