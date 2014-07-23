@@ -166,6 +166,7 @@ INSTALLED_APPS = (
     'simple_autocomplete',
     'pagination',
     'sites_groups',
+    'google_analytics',
 
     # sample apps to explain usage
     'unicef',

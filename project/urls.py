@@ -19,4 +19,5 @@ urlpatterns = patterns('',
     url(r'^ckeditor/', include('ckeditor.urls')),
     url(r'^likes/', include('likes.urls')),
     url(r'^comments/', include('django.contrib.comments.urls')),
+    url(r'^djga/', include('google_analytics.urls')),
 )

@@ -21,3 +21,4 @@ django-category
 django-ckeditor
 django-pagination
 django-simple-autocomplete
+django-google-analytics-app
