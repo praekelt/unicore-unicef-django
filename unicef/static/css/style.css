@@ -35,6 +35,7 @@
 	#content {}
 		#content .h1 { background: #cce9fc; border-top: 1px dotted #fff; font-weight: bold; color: #0093ef; vertical-align: middle; line-height: 44px }
 		#content .h1 img { float: left; padding: 0 10px 0 0; }
+		#content .h1 a { display: block; }
 		#content .h2 { padding: 10px; background: #cce9fc; font-weight: bold; color: #0093ef; border-top: 1px dotted #0093ef; }
 		#content .box { padding: 10px; }
 			#content .box .item { padding: 0 0 10px 0; margin: 0 0 10px 0; border-bottom: 1px dotted #cce9fc; }
