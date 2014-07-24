@@ -19,9 +19,14 @@ urlpatterns = patterns(
         name='about'
     ),
     url(
-        r'^terms/$',
-        TemplateView.as_view(template_name="unicef/terms.html"),
-        name='terms'
+        r'^credits/$',
+        TemplateView.as_view(template_name="unicef/credits.html"),
+        name='credits'
+    ),
+    url(
+        r'^contact/$',
+        TemplateView.as_view(template_name="unicef/contact.html"),
+        name='contact'
     ),
     url(
         r'^about/hygiene/$',
