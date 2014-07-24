@@ -7,7 +7,7 @@
         {% with object.content_pages as content_pages %}
             {% autopaginate content_pages 1 %}
 
-            {% if '<img' not in object.content %}
+            {% if '<img' not in object.content and object.image %}
                 <div class="image">
                     <img src="{{ object.image_detail_url }}" />
                     {% if object.image_attribution %}
