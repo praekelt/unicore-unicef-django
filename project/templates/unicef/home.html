@@ -7,15 +7,12 @@
 
 {% block content %}
     <div id="content">
+        {% for cat in categories %}
         <div class="h1">
-            <a href="{% url 'category_object_list' 'diarrhoea' %}"><img src="{{ STATIC_URL }}img/icon-diarrhoea.jpg"> Diarrhoea</a>
+            <a href="{% url 'category_object_list' cat.slug %}"><img src="{{ STATIC_URL }}img/icon-{{cat.slug}}.jpg"/> {{cat.title}}</a>
             <div class="clear"></div>
         </div>
-
-        <div class="h1">
-            <a href="{% url 'category_object_list' 'hygiene' %}"><img src="{{ STATIC_URL }}img/icon-hygiene.jpg"> Hygiene</a>
-            <div class="clear"></div>
-        </div>
+        {% endfor %}
 
         <div class="detail">
             <p><strong>Facts for Life saves lives!</strong></p>

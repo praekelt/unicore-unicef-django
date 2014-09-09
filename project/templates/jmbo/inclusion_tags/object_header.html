@@ -1,6 +1,6 @@
 {% load likes_inclusion_tags i18n %}
 
-<div class="h2">{{ object.primary_category.title }}</div>
+<div class="h1"><img src="{{ STATIC_URL }}img/icon-{{object.primary_category.slug}}.jpg"/> {{ object.primary_category.title }}</div>
 <div class="object-header">
     <div class="intro">{{ object.description }}</div>
 

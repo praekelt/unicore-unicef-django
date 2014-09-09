@@ -8,11 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    url(
-        r'^$',
-        TemplateView.as_view(template_name="unicef/home.html"),
-        name='home'
-    ),
+    url(r'^$', 'unicef.views.home', name='home'),
     url(
         r'^about/$',
         TemplateView.as_view(template_name="unicef/about.html"),
