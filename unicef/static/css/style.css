@@ -14,7 +14,7 @@
 
 /*  HEADER  */
 
-	#header { padding: 10px; background: #cce9fc; text-align: center; border-bottom: 1px dotted #0093ef; }
+	#header { padding: 10px; background: #cce9fc; text-align: center; border: 0; border-bottom: 1px dotted #0093ef; }
 		#header img { display: block; margin: 0 auto }
 
 
@@ -33,12 +33,12 @@
 /*  CONTENT  */
 
 	#content {}
-		#content .h1 { background: #cce9fc; border-top: 1px dotted #fff; font-weight: bold; color: #0093ef; vertical-align: middle; line-height: 44px }
-		#content .h1 img { float: left; padding: 0 10px 0 0; }
+		#content .h1 { background: #cce9fc; border: 0; border-top: 1px dotted #fff; font-weight: bold; color: #0093ef; vertical-align: middle; line-height: 44px }
+		#content .h1 img { float: left; margin: 0 10px 0 0; border: 0; }
 		#content .h1 a { display: block; }
-		#content .h2 { padding: 10px; background: #cce9fc; font-weight: bold; color: #0093ef; border-top: 1px dotted #0093ef; }
+		#content .h2 { padding: 10px; background: #cce9fc; font-weight: bold; color: #0093ef; border: 0; border-top: 1px dotted #0093ef; }
 		#content .box { padding: 10px; }
-			#content .box .item { padding: 0 0 10px 0; margin: 0 0 10px 0; border-bottom: 1px dotted #cce9fc; }
+			#content .box .item { padding: 0 0 10px 0; margin: 0 0 10px 0; border: 0; border-bottom: 1px dotted #cce9fc; }
 			#content .box .item:last-child { padding: 0; margin: 0; border: 0; }
 			#content .box .item a.pic { float: left; padding: 0 10px 0 0; }
 			#content .box .item a.pic img { display: block; }
@@ -51,7 +51,7 @@
 /*  MENU  */
 
 	#menu { background: #0093ef; color: #87cae3; text-align: center; }
-		#menu a { padding: 8px 10px; display: block; border-bottom: 1px dotted #fff; text-align: left; color: #fff; }
+		#menu a { padding: 8px 10px; display: block; border: 0; border-bottom: 1px dotted #fff; text-align: left; color: #fff; }
 
 
 /*  FOOTER  */
