@@ -2,10 +2,9 @@
 
 <div class="h1"><img src="{{ STATIC_URL }}img/icon-{{object.primary_category.slug}}.jpg"/> {{ object.primary_category.title }}</div>
 <div class="object-header">
-    <div class="intro">{{ object.description }}</div>
+    <div class="intro">{{ object.title }}</div>
 
     <div class="meta">
-
         {% comment %}
         <div class="byline">
             {% blocktrans %}By{% endblocktrans %} <a href="{{ object.owner.get_absolute_url }}">{{ object.owner }}</a> {% blocktrans %}on{% endblocktrans %} {{ object.created|date:"j F Y" }}
