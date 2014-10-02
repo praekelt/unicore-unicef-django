@@ -11,6 +11,8 @@ from unicore_gitmodels import models
 from post.models import Post
 from category.models import Category
 
+from html2text import html2text
+
 
 class Command(BaseCommand):
     help = 'Save all the current content to a github repository'
@@ -64,7 +66,7 @@ class Command(BaseCommand):
             page.subtitle = instance.subtitle
             page.slug = instance.slug
             page.description = instance.description
-            page.content = instance.content
+            page.content = html2text(instance.content)
             page.created_at = instance.created
             page.modified_at = instance.modified
             page.featured_in_category = False
@@ -103,6 +105,8 @@ class Command(BaseCommand):
         if not (repo_url or pubkey or privkey):
             raise Exception('Missing options. See usage.')
 
+        print 'cloning repo..'
+
         repo_path = os.path.join(os.getcwd(), 'cmsrepo')
 
         if os.path.exists(repo_path):
@@ -125,13 +129,19 @@ class Command(BaseCommand):
         self.GitPage = ws.register_model(models.GitPageModel)
         self.GitCategory = ws.register_model(models.GitCategoryModel)
 
+        print 'deleting existing content..'
         self.delete_pages()
         self.delete_categories()
 
+        print 'creating categories..'
         for c in Category.objects.all():
             self.save_category(c)
 
+        print 'creating pages..'
         for p in Post.objects.all():
             self.save_post(p)
 
+        print 'done.'
+
+        print 'pushing to github..'
         self.push()

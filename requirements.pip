@@ -22,3 +22,5 @@ django-ckeditor
 django-pagination
 django-simple-autocomplete
 django-google-analytics-app
+unicore-gitmodels
+html2text
