@@ -2,7 +2,7 @@ import os
 import pygit2
 import shutil
 
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 
 from optparse import make_option
 from gitmodel.workspace import Workspace
@@ -102,8 +102,9 @@ class Command(BaseCommand):
         privkey = options.get('privkey')
         passphrase = options.get('passphrase')
 
-        if not (repo_url or pubkey or privkey):
-            raise Exception('Missing options. See usage.')
+        if not (repo_url and pubkey and privkey):
+            raise CommandError(
+                'Missing options. --repo --pubkey --privkey are all reqiured.')
 
         print 'cloning repo..'
 
