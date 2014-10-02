@@ -132,7 +132,7 @@ class Command(BaseCommand):
         self.GitCategory = ws.register_model(models.GitCategoryModel)
 
         must_delete = self.get_input_data(
-            'Do you want to delete existing data? Y/n  ', 'y')
+            'Do you want to delete existing data? Y/n: ', 'y')
 
         if must_delete.lower() == 'y':
             print 'deleting existing content..'
