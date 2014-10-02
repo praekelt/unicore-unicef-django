@@ -3,6 +3,7 @@ import pygit2
 import shutil
 
 from django.core.management.base import BaseCommand, CommandError
+from django.utils.six.moves import input
 
 from optparse import make_option
 from gitmodel.workspace import Workspace
@@ -130,9 +131,13 @@ class Command(BaseCommand):
         self.GitPage = ws.register_model(models.GitPageModel)
         self.GitCategory = ws.register_model(models.GitCategoryModel)
 
-        print 'deleting existing content..'
-        self.delete_pages()
-        self.delete_categories()
+        must_delete = self.get_input_data(
+            'Do you want to delete existing data? Y/n  ', 'y')
+
+        if must_delete.lower() == 'y':
+            print 'deleting existing content..'
+            self.delete_pages()
+            self.delete_categories()
 
         print 'creating categories..'
         for c in Category.objects.all():
@@ -146,3 +151,10 @@ class Command(BaseCommand):
 
         print 'pushing to github..'
         self.push()
+
+    def get_input_data(self, message, default=None):
+        raw_value = input(message)
+        if default and raw_value == '':
+            raw_value = default
+
+        return raw_value.lower()
