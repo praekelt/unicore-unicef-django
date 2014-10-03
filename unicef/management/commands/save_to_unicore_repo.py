@@ -42,7 +42,13 @@ class Command(BaseCommand):
             action='store',
             dest='passphrase',
             default=None,
-            help='The passphrase for the private key to use when pushing')
+            help='The passphrase for the private key to use when pushing'),
+        make_option(
+            '--fake',
+            action='store_true',
+            dest='fake',
+            default=False,
+            help='Exports the data without pushing to a remote repo')
     )
 
     def push(self):
@@ -102,26 +108,30 @@ class Command(BaseCommand):
         pubkey = options.get('pubkey')
         privkey = options.get('privkey')
         passphrase = options.get('passphrase')
+        must_fake = options.get('fake')
 
-        if not (repo_url and pubkey and privkey):
+        if not (repo_url and pubkey and privkey) and not must_fake:
             raise CommandError(
                 'Missing options. --repo --pubkey --privkey are all reqiured.')
 
         print 'cloning repo..'
 
-        repo_path = os.path.join(os.getcwd(), 'cmsrepo')
+        repo_path = os.path.join(os.getcwd(), 'cms_temp_repo')
 
         if os.path.exists(repo_path):
             shutil.rmtree(repo_path)
 
-        self.credentials = pygit2.Keypair(
-            'git',
-            pubkey,
-            privkey,
-            passphrase)
+        if not must_fake:
+            self.credentials = pygit2.Keypair(
+                'git',
+                pubkey,
+                privkey,
+                passphrase)
 
-        self.repo = pygit2.clone_repository(
-            repo_url, repo_path, credentials=self.credentials)
+            self.repo = pygit2.clone_repository(
+                repo_url, repo_path, credentials=self.credentials)
+        else:
+            self.repo = pygit2.init_repository(repo_path)
 
         try:
             ws = Workspace(self.repo.path, self.repo.head.name)
@@ -131,8 +141,11 @@ class Command(BaseCommand):
         self.GitPage = ws.register_model(models.GitPageModel)
         self.GitCategory = ws.register_model(models.GitCategoryModel)
 
-        must_delete = self.get_input_data(
-            'Do you want to delete existing data? Y/n: ', 'y')
+        if not must_fake:
+            must_delete = self.get_input_data(
+                'Do you want to delete existing data? Y/n: ', 'y')
+        else:
+            must_delete = 'y'
 
         if must_delete.lower() == 'y':
             print 'deleting existing content..'
@@ -149,8 +162,9 @@ class Command(BaseCommand):
 
         print 'done.'
 
-        print 'pushing to github..'
-        self.push()
+        if not must_fake:
+            print 'pushing to github..'
+            self.push()
 
     def get_input_data(self, message, default=None):
         raw_value = input(message)
