@@ -42,7 +42,7 @@ class ExportTest(TestCase):
             page.primary_category = category2
             page.save()
 
-        call_command('save_to_unicore_repo', fake=True)
+        call_command('export_to_git', fake=True)
 
         repo_path = os.path.join(os.getcwd(), 'cms_temp_repo')
         ws = Workspace(repo_path)
